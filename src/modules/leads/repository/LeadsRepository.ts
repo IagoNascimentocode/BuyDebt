@@ -12,19 +12,19 @@ class LeadsRepository implements ILeadsRepository{
         let url = `https://laguz-gateway-hml.viptech.com.br/leads/list?page=${page}&pageSize=${pageSize}&`
 
         if(type){
-            url = url.concat(`filters=type:${type}`)
+            url = url.concat(`&filters=type:${type}`)
         }
         if(isDead){
-            url = url.concat(`filters=isDead:${isDead}`)
+            url = url.concat(`&filters=isDead:${isDead}`)
         }
         if(age){
-            url = url.concat(`filters=age:${age}`)
+            url = url.concat(`&filters=age:${age}`)
         }
         if(document){
-            url = url.concat(`filters=document:${document}`)
+            url = url.concat(`&filters=document:${document}`)
         }
         if(gender){
-            url =url.concat(`filters=gender:${gender}`)
+            url =url.concat(`&filters=gender:${gender}`)
         }        
         console.log(url)
         const leads = await axios.get(`${url}`)
